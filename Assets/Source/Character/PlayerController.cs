@@ -2,39 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Characters
+public class PlayerController : MonoBehaviour
 {
 
     //Var
-    public float speed;
-    public GUIText textOutput;
+    private Characters characterClass;
 
     // Use this for initialization
     void Start ()
     {
-     
+        characterClass = GetComponent<Characters>();
+        if(!characterClass)
+        {
+            print("Missing characterClass");
+            return;
+        }
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        Movement();
-    }
-
-    void bindkey()
-    {
-
-    }
-
-    void Movement()
-    {
-        float MoveX = Input.GetAxis("Horizontal");
-        float MoveZ = Input.GetAxis("Vertical");
-
-        float xDeltaPos = MoveX * speed;
-        float zDeltaPos = MoveZ * speed;
-
-        transform.Translate(new Vector3(xDeltaPos, 0, zDeltaPos));
-        textOutput.text = "Horizontal Value Returned: " + xDeltaPos.ToString("F2") + "\nVertical Value Returned: " + zDeltaPos.ToString("F2");
+        characterClass.MoveX = Input.GetAxis("Horizontal");
+        characterClass.MoveZ = Input.GetAxis("Vertical");
     }
 }
