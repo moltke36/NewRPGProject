@@ -39,12 +39,12 @@ public class Characters : MonoBehaviour {
             if (MoveX > 0)
             {
                 animator.SetInteger("Direction", 3);
-                print(animator.GetInteger("Direction"));
+                //print(animator.GetInteger("Direction"));
             }
             else if (MoveX < 0)
             {
                 animator.SetInteger("Direction", 1);
-                print(animator.GetInteger("Direction"));
+                //print(animator.GetInteger("Direction"));
             }
         }
         else
@@ -57,7 +57,7 @@ public class Characters : MonoBehaviour {
             else if (MoveZ < 0)
             {
                 animator.SetInteger("Direction", 0);
-                print(animator.GetInteger("Direction"));
+                //print(animator.GetInteger("Direction"));
             }
         }
 
